@@ -1,0 +1,48 @@
+{
+  "version": "0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "event.nlu.intent.is('forget')",
+        "node": "forget-my-name"
+      }
+    ]
+  },
+  "startNode": "entry",
+  "nodes": [
+    {
+      "id": "a54a82eb7c",
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_text-B6bWVr",
+        "setUserVariable {\"name\":\"nickname\",\"value\":\"{{event.text}}\",\"expiry\":\"never\"}"
+      ],
+      "onReceive": [],
+      "next": [
+        {
+          "condition": "true",
+          "node": "node-f5b6"
+        }
+      ]
+    },
+    {
+      "id": "19e1f29d72",
+      "name": "node-f5b6",
+      "next": [
+        {
+          "condition": "event.nlu.intent.is('hello')",
+          "node": "gotit.flow.json"
+        },
+        {
+          "condition": "true",
+          "node": "unknown.flow.json"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-URd~G2"
+      ],
+      "onReceive": []
+    }
+  ]
+}

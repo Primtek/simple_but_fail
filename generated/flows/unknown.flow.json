@@ -1,0 +1,21 @@
+{
+  "version": "0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "nodes": [
+    {
+      "id": "92098f5bd9",
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_text-6BHeL9"
+      ],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json"
+        }
+      ]
+    }
+  ]
+}
