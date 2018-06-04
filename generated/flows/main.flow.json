@@ -2,12 +2,7 @@
   "version": "0.1",
   "catchAll": {
     "onReceive": [],
-    "next": [
-      {
-        "condition": "event.nlu.intent.is('forget')",
-        "node": "forget-my-name"
-      }
-    ]
+    "next": []
   },
   "startNode": "entry",
   "nodes": [
@@ -15,10 +10,11 @@
       "id": "a54a82eb7c",
       "name": "entry",
       "onEnter": [
-        "say #!builtin_text-B6bWVr",
+        "say #!builtin_text-B6bWVr"
+      ],
+      "onReceive": [
         "setUserVariable {\"name\":\"nickname\",\"value\":\"{{event.text}}\",\"expiry\":\"never\"}"
       ],
-      "onReceive": [],
       "next": [
         {
           "condition": "true",
@@ -40,6 +36,7 @@
         }
       ],
       "onEnter": [
+        "getUserVariable {\"name\":\"nickname\",\"output\":\"nickname\"}",
         "say #!builtin_text-URd~G2"
       ],
       "onReceive": []
